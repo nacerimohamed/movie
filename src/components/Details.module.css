@@ -1,0 +1,176 @@
+/* Fond d'overlay (à ajouter dans votre composant si vous voulez un voile sombre) 
+   Placez une div avec la classe "overlay" dans le composant parent ou autour de Details.
+*/
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(5px);
+  z-index: 999;
+  animation: fadeInOverlay 0.3s ease;
+}
+
+@keyframes fadeInOverlay {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* --- Style du composant Details --- */
+.details {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 800px;
+  max-height: 85vh;
+  overflow-y: auto;
+  background: #1e1e2f;
+  color: #f0f0f0;
+  border-radius: 24px;
+  padding: 2rem 2rem 2.5rem;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  animation: slideUp 0.4s ease;
+  scrollbar-width: thin;
+  scrollbar-color: #888 #2a2a3a;
+}
+
+.details::-webkit-scrollbar {
+  width: 8px;
+}
+
+.details::-webkit-scrollbar-track {
+  background: #2a2a3a;
+  border-radius: 20px;
+}
+
+.details::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 20px;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -40%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
+
+/* Bouton de fermeture */
+.details button {
+  position: absolute;
+  top: 1.2rem;
+  right: 1.2rem;
+  background: rgba(255, 255, 255, 0.15);
+  border: none;
+  color: white;
+  font-size: 1.2rem;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(4px);
+  transition: all 0.2s;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.details button:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.1);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.details button:active {
+  transform: scale(0.95);
+}
+
+/* Titre */
+.details h2 {
+  margin: 0 0 1.5rem 0;
+  font-size: 2.2rem;
+  font-weight: 700;
+  line-height: 1.2;
+  background: linear-gradient(135deg, #fff, #d4d4ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  padding-right: 3rem; /* évite le chevauchement avec le bouton */
+}
+
+/* Image */
+.details img {
+  width: 100%;
+  max-height: 300px;
+  object-fit: cover;
+  border-radius: 16px;
+  margin: 1.5rem 0;
+  box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.5);
+  border: 3px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Paragraphes */
+.details p {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #d0d0e0;
+  margin: 1rem 0;
+}
+
+/* Mise en forme des informations (rating, date) */
+.details p:has(> ⭐),
+.details p:has(> 📅) {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.4rem 1.2rem;
+  border-radius: 40px;
+  margin-right: 0.8rem;
+  font-weight: 500;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(2px);
+}
+
+/* Ajustement pour le texte de l'overview */
+.details p:first-of-type {
+  font-size: 1.1rem;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 1rem;
+  border-radius: 16px;
+  border-left: 4px solid #6a5acd;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .details {
+    padding: 1.5rem 1.5rem 2rem;
+    width: 95%;
+    max-height: 90vh;
+  }
+
+  .details h2 {
+    font-size: 1.8rem;
+  }
+
+  .details p:first-of-type {
+    font-size: 1rem;
+    padding: 0.8rem;
+  }
+
+  .details button {
+    width: 36px;
+    height: 36px;
+    font-size: 1rem;
+    top: 1rem;
+    right: 1rem;
+  }
+}

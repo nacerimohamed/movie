@@ -1,0 +1,144 @@
+/* ===== SearchBar ===== */
+.search {
+  display: flex;
+  justify-content: center;
+  margin: 2rem auto;
+  max-width: 600px;
+  width: 90%;
+}
+
+.search input {
+  width: 100%;
+  padding: 0.8rem 1.5rem;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 50px;
+  background: #f0f2f5;
+  box-shadow: inset 0 2px 5px rgba(0,0,0,0.1), 0 2px 4px rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
+  outline: none;
+  color: #333;
+}
+
+.search input:focus {
+  background: #ffffff;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1), inset 0 1px 2px rgba(0,0,0,0.05);
+  transform: scale(1.02);
+}
+
+.search input::placeholder {
+  color: #999;
+  font-style: italic;
+}
+
+/* ===== Details ===== */
+.details {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 800px;
+  max-height: 90vh;
+  overflow-y: auto;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -45%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.details button {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: bold;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(5px);
+  transition: background 0.3s, transform 0.2s;
+}
+
+.details button:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(1.1);
+}
+
+.details button:active {
+  transform: scale(0.95);
+}
+
+.details h2 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 2rem;
+  font-weight: 700;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+  padding-right: 2rem; /* laisse de l'espace pour le bouton */
+}
+
+.details img {
+  width: 100%;
+  max-height: 300px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin: 1.5rem 0;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+  border: 3px solid rgba(255,255,255,0.2);
+}
+
+.details p {
+  line-height: 1.6;
+  margin: 0.8rem 0;
+  font-size: 1rem;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+.details p:last-of-type {
+  margin-bottom: 0;
+}
+
+/* Style pour la note et la date (si vous voulez les mettre en valeur) */
+.details p:has(> ⭐),
+.details p:has(> 📅) {
+  display: inline-block;
+  background: rgba(255,255,255,0.15);
+  padding: 0.3rem 1rem;
+  border-radius: 30px;
+  margin-right: 0.5rem;
+  font-weight: 500;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .details {
+    padding: 1.5rem;
+    width: 95%;
+  }
+
+  .details h2 {
+    font-size: 1.5rem;
+  }
+}

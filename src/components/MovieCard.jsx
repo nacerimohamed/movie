@@ -1,3 +1,5 @@
+import styles from './MovieCard.module.css';
+
 export default function MovieCard({ item, onClick }) {
   const image = item.poster_path
     ? `https://image.tmdb.org/t/p/w500${item.poster_path}`
