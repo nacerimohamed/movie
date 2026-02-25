@@ -3,7 +3,7 @@
 
 A modern React application to search and discover movies and TV series using the [TMDB API](https://www.themoviedb.org/). Users can search for titles, view details, and get ratings and descriptions in a sleek, responsive interface.
 
-![App Screenshot](https://via.placeholder.com/800x400?text=Add+a+screenshot+here)
+
 
 ## ✨ Features
 
